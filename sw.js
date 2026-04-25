@@ -3,7 +3,6 @@ const cacheName = "xx18-v1";   // غيّر الرقم عند كل تحديث
 const filesToCache = [
   "./",
   "./index.html",
-  "./style.css",
   "./manifest.json",
   "./icon-192.png",
   "./icon-512.png",
