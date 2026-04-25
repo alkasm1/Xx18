@@ -21,9 +21,6 @@ for (let k in indexToChar) charToIndex[indexToChar[k]] = Number(k);
 function normalizeArabic(s){
   s = (s || "");
   return s
-    .replace(/[إأآ]/g,"ا")
-    .replace(/ى/g,"ي")
-    .replace(/ؤ/g,"و")
     .replace(/ئ/g,"ي")
     .replace(/ة/g,"ه");
 }
