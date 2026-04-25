@@ -1,4 +1,4 @@
-const cacheName = "xx16-offline-v1";
+const cacheName = "xx18-offline-v1";
 
 const filesToCache = [
   "./",
@@ -10,10 +10,10 @@ const filesToCache = [
   "./icon-192.png",
   "./icon-512.png",
 
-  // مكتبات PDF و DOCX
-  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.2.67/pdf.min.js",
-  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.2.67/pdf.worker.min.js",
-  "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
+  // مكتبات محلية
+  "./pdf.min.js",
+  "./pdf.worker.min.js",
+  "./jszip.min.js"
 ];
 
 self.addEventListener("install", (event) => {
