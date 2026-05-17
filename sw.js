@@ -1,8 +1,9 @@
-const cacheName = "xx18-v3";
+// FILE: /sw.js
 
-const filesToCache = [
+const cacheName="ALM-RT2";
+
+const filesToCache=[
   "./",
-  "/Xx18/",
   "./index.html",
   "./manifest.json",
   "./icon-192.png",
@@ -12,27 +13,26 @@ const filesToCache = [
   "./pdf.worker.min.js",
   "./jspdf.umd.min.js",
   "./docx.min.js",
-  "./script.js"
+  "./app/ui.js",
+  "./alm/core.js"
 ];
 
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(cacheName).then((cache) => cache.addAll(filesToCache))
-  );
+self.addEventListener("install",e=>{
+  e.waitUntil(caches.open(cacheName).then(c=>c.addAll(filesToCache)));
   self.skipWaiting();
 });
 
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((key) => key !== cacheName).map((key) => caches.delete(key)))
+self.addEventListener("activate",e=>{
+  e.waitUntil(
+    caches.keys().then(keys=>
+      Promise.all(keys.filter(k=>k!==cacheName).map(k=>caches.delete(k)))
     )
   );
   self.clients.claim();
 });
 
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => response || fetch(event.request))
+self.addEventListener("fetch",e=>{
+  e.respondWith(
+    caches.match(e.request).then(r=>r||fetch(e.request))
   );
 });
