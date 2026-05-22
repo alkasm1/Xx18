@@ -1,6 +1,4 @@
-// FILE: /sw.js
-
-const cacheName="ALM-RT2";
+const cacheName="ALM-RT2-v2";
 
 const filesToCache=[
   "./",
@@ -33,6 +31,6 @@ self.addEventListener("activate",e=>{
 
 self.addEventListener("fetch",e=>{
   e.respondWith(
-    caches.match(e.request).then(r=>r||fetch(e.request))
+    caches.match(e.request, {ignoreSearch:true}).then(r=>r||fetch(e.request))
   );
 });
